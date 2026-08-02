@@ -48,9 +48,45 @@ Living in an Indian college hostel comes with unique daily survival challenges:
 
 The app follows modern Android **Clean Architecture** with MVVM (Model-View-ViewModel), leveraging Kotlin Coroutines and Flows for real-time reactive UI updates.
 
-<!-- <img width="1286" height="820" alt="Architecture_Diagram" src="https://github.com/user-attachments/assets/21cf0119-e2ca-407c-b4ad-817f54dcaf08" /> -->
+```mermaid
+flowchart TD
+    subgraph UI_Layer [UI Layer - Jetpack Compose & M3]
+        A[Onboarding / Auth Screen] --> B[Main Navigation Host]
+        B --> C[Pantry & Mess Scan View]
+        B --> D[AI Recipe Generator & Chat]
+        B --> E[Shopping List View]
+        B --> F[Hands-Free Cooking Mode]
+    end
 
-https://github.com/user-attachments/assets/a50249b5-d9f8-417f-8943-24e14bdda686
+    subgraph State_Layer [State & Logic Layer]
+        VM[FridgeViewModel]
+        VM -->|Exposes StateFlow| UI_Layer
+    end
+
+    subgraph Data_Layer [Data Layer - Room Database]
+        DB[(Room Local Database)]
+        PantryDao[PantryItemDao]
+        RecipeDao[RecipeDao]
+        ShoppingDao[ShoppingListDao]
+        MealDao[LoggedMealDao]
+        
+        DB --> PantryDao
+        DB --> RecipeDao
+        DB --> ShoppingDao
+        DB --> MealDao
+    end
+
+    subgraph Remote_Services [Remote & External Integrations]
+        GeminiService[Gemini Vision & Chat AI Service]
+        FirebaseAuthService[Firebase Authentication]
+        ZeptoExpress[Zepto 10-Min Quick-Commerce Dispatch]
+    end
+
+    VM <-->|Coroutines / Flow| Data_Layer
+    VM <-->|OkHttp REST REST API| GeminiService
+    VM <-->|Firebase SDK| FirebaseAuthService
+    E -->|Intent Dispatch| ZeptoExpress
+```
 
 
 
