@@ -1,0 +1,6 @@
+{
+  "name": "Bhook AI",
+  "description": "Bhook AI - Smart Hostel AI Kitchen & Recipe Assistant for Indian Students",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

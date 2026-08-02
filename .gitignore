@@ -1,0 +1,72 @@
+# Built application artifacts & binaries
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Android Gradle / Build outputs
+**/build/
+/build/
+app/build/
+.gradle/
+build/
+bin/
+gen/
+out/
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Kotlin & KSP incremental caches
+.kotlin/
+**/build/generated/
+**/build/ksp/
+
+# Local configuration & environment variables
+local.properties
+.env
+*.env
+!.env.example
+
+# Signing & Keystore files
+*.jks
+*.keystore
+*.p12
+*.pem
+debug.keystore
+debug.keystore.base64
+
+# Firebase & Google Services secrets
+google-services.json
+
+# IDE - Android Studio / IntelliJ IDEA / Eclipse
+*.iml
+.idea/
+!.idea/copyright/
+!.idea/codeStyles/
+!.idea/scopes/
+!.idea/vcs.xml
+!.idea/runConfigurations/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# OS / System temporary files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+*~
+*.swp
+*.swo
+
+# Profiling & Diagnostics
+*.hprof
+*.trace
